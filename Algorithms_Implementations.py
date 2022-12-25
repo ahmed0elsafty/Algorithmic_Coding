@@ -37,3 +37,51 @@ class TreeTraversal:
             self.postOrder(root.right)
             print(root.value)
 
+    def levelOrder(root : TreeNode):
+
+        def height(root : TreeNode):
+            if root is None:
+                return 0
+            else:
+                lheight = height(root.left)
+                rheight = height(root.right)
+                return max(lheight, rheight) + 1
+            
+        def printToLevel(root: TreeNode, level):
+            if root is None:
+                return
+            if level == 1:
+                print(root.value, end = ' ')
+            else:
+                printToLevel(root.left, level - 1)
+                printToLevel(root.right, level - 1)
+
+        height = height(root)
+        for i in range(1, height+1):
+            printToLevel(root, i)
+
+    def bfsOrder(root: TreeNode):
+        if root is None:
+            return
+        else:
+            q = [root]
+            while len(q) != 0:
+                node = q.pop(0)
+                print(node.value, end=' ')
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+
+def height_of_Binary_Tree(root : TreeNode):
+    if root is None:
+        return 0
+    if root.left is None and root.right is None:
+        return max(
+            height_of_Binary_Tree(root.left) ,
+            height_of_Binary_Tree(root.right))
+    else:
+        return max(
+            height_of_Binary_Tree(root.left) ,
+            height_of_Binary_Tree(root.right)) + 1
+
