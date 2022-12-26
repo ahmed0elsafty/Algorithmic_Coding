@@ -73,15 +73,3 @@ class TreeTraversal:
                 if node.right:
                     q.append(node.right)
 
-def height_of_Binary_Tree(root : TreeNode):
-    if root is None:
-        return 0
-    if root.left is None and root.right is None:
-        return max(
-            height_of_Binary_Tree(root.left) ,
-            height_of_Binary_Tree(root.right))
-    else:
-        return max(
-            height_of_Binary_Tree(root.left) ,
-            height_of_Binary_Tree(root.right)) + 1
-
