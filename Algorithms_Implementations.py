@@ -37,7 +37,7 @@ class TreeTraversal:
             self.postOrder(root.right)
             print(root.value)
 
-    def levelOrder(root : TreeNode):
+    def levelOrder(self,root : TreeNode):
 
         def height(root : TreeNode):
             if root is None:
@@ -60,7 +60,7 @@ class TreeTraversal:
         for i in range(1, height+1):
             printToLevel(root, i)
 
-    def bfsOrder(root: TreeNode):
+    def bfsOrder(self, root: TreeNode):
         if root is None:
             return
         else:
@@ -72,4 +72,3 @@ class TreeTraversal:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-
